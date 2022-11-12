@@ -1,3 +1,6 @@
 Challenge Bildarchivierung.zip
 construction_images/*
 __MACOSX
+images/
+*.Identifier
+__pycache__
