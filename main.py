@@ -67,7 +67,8 @@ def main(
     tasksets = get_tasksets()
 
     # Create model
-    model = l2l.vision.models.OmniglotFC(3 * (28 ** 2), ways)
+    # model = l2l.vision.models.OmniglotFC(3 * (28 ** 2), ways)
+    model = l2l.vision.models.MiniImagenetCNN(output_size=ways)
     model.to(device)
     maml = l2l.algorithms.MAML(model, lr=fast_lr, first_order=False)
     opt = optim.Adam(maml.parameters(), meta_lr)

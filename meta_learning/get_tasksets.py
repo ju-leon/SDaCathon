@@ -102,11 +102,13 @@ class TensorTask():
 
 
 def get_tasksets():
-    train_tasks = TensorTask('/home/luis/sdacathon/data/meta-train/pretrain')
+    current_dir = os.getcwd()
+    train_tasks = TensorTask(os.path.join(
+        current_dir, 'meta_learning/data/meta-train/pretrain'))
     validation_tasks = TensorTask(
-        '/home/luis/sdacathon/data/meta-train/validation')
+        os.path.join(current_dir, 'meta_learning/data/meta-train/validation'))
     test_adaptation_tasks = TensorTask(
-        '/home/luis/sdacathon/data/meta-test/train')
+        os.path.join(current_dir, 'meta_learning/data/meta-test/train'))
     test_evaluation_tasks = TensorTask(
-        '/home/luis/sdacathon/data/meta-test/test')
+        os.path.join(current_dir, 'meta_learning/data/meta-test/test'))
     return BenchmarkTasksets(train_tasks, validation_tasks, test_adaptation_tasks, test_evaluation_tasks)
